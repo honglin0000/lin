@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+cookies*.json
+*credentials*
+reports/
+data/
+logs/
+.venv/
+*.log
