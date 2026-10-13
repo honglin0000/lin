@@ -10,3 +10,9 @@ data/
 logs/
 .venv/
 *.log
+login-qr*.png
+runtime/
+auth-token
+service.json
+setup.lock
+xiaohongshu-mcp-v*

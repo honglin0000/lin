@@ -4,6 +4,16 @@
 
 **只读研究，不包含发笔记、评论、点赞、收藏或自动排期。** 输出代表本次搜索样本，不是小红书全站热榜。
 
+## 一句话开始
+
+把下面这一句话发给你自己的 Grok Bot：
+
+> 请给自己装好这个项目里的小红书热点研究功能，按 START.md 自动配置职责、技能和连接，并检查能否正常使用：https://github.com/honglin0000/lin
+
+机器人应自行读取仓库、记住研究职责、安装完整技能、启动数据服务并检查登录。需要登录时，它会出示二维码，你用小红书 App 扫码；登录状态和一次真实搜索验证通过后，即可直接说“帮我找最近一周 AI 办公的话题”。不需要客户复制终端命令、填写端口或传送 Cookie。
+
+这依赖 Grok Bot 实际具备联网、运行 Python 和保存技能/职责的能力；缺少能力或系统依赖时会说明卡在哪一步。**“一句话”是安装入口，不表示任何环境都已验证可用。** 当前验证情况见 [验证记录](VALIDATION.md)。
+
 ## 欢迎一起完善
 
 有想法、发现问题，或者愿意改进机器人，都欢迎参与：
@@ -24,15 +34,13 @@
 
 ## 给 Grok Bot 使用
 
-把本仓库地址交给 Grok Bot，并发送：
+完整安装流程在 [START.md](START.md)，机器人职责在 [PROFILE.md](PROFILE.md)，实际技能在 [skills/xhs-topic-scout/SKILL.md](skills/xhs-topic-scout/SKILL.md)。默认给当前机器人增加这项能力，保留它已有的名称、职责和其他技能；用户明确要求新建时才新建。
 
-> 请读取这个仓库的 START.md，按其中说明创建“小红书热点侦察员”，安装随附的 xhs-topic-scout 技能和脚本。完成后检查数据服务是否能连接、是否已登录。没有连接成功就告诉我具体缺什么，不要用演示数据代替。暂不创建定时任务。
+技能目录下的 `scripts/setup.py` 自动处理本项目需要的数据服务：下载并校验固定版本、保存私有连接配置、在同一环境启动服务、检查登录并生成扫码图片。后续搜索自动复用配置，服务停止时尝试重新启动。它不替代 Grok Bot 原生的职责保存和技能注册，后两项由机器人按 START.md 执行并回读验证。
 
-机器人职责在 [PROFILE.md](PROFILE.md)，实际技能在 [skills/xhs-topic-scout/SKILL.md](skills/xhs-topic-scout/SKILL.md)。Grok Bot 的技能安装能力与账号版本有关；这些文件不是官方一键导入包，导入后需要验证。
+数据来自开源 [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp)。安装助手支持 Linux x86_64 和 Apple Silicon Mac，固定使用已核实下载校验值的 v2.5.5；其他平台会明确退出。首次启动由上游下载浏览器；缺少系统运行库时说明原因，不自动提权安装软件。仓库不附带上游安装包、账号或登录凭据。
 
-**第一次接入需要小红书数据服务与登录。** 本项目连接开源 [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp)，不包含它的安装包、浏览器、账号或登录凭据。可运行在该服务旁边，也可连接你配置的可达服务地址。
-
-Grok Bot 的云端电脑和你的 Mac 是两个运行环境。若服务装在 Mac 上，云端的 `127.0.0.1` 不会指向 Mac；必须先解决两端连接，或在同一环境运行采集脚本。不要为了接入而把未鉴权的账号操作服务直接暴露到公网。
+安装助手新建的服务与搜索脚本放在同一台电脑，只监听回环地址并使用鉴权。Grok Bot 云电脑的 `127.0.0.1` 不会指向你的 Mac；安装助手不会开放公网端口或创建隧道。每位客户使用自己的私有配置和小红书登录状态。
 
 ## 装好后这样说
 
@@ -42,7 +50,22 @@ Grok Bot 的云端电脑和你的 Mac 是两个运行环境。若服务装在 Ma
 
 ## 本地运行
 
-需要 Python 3.9 或更高版本，无额外 Python 依赖。先按上游说明启动服务并完成小红书登录，再运行：
+以下命令供机器人和开发者使用，普通用户只需上面的一句话。需要 Python 3.9 或更高版本，无额外 Python 依赖。
+
+```bash
+python3 skills/xhs-topic-scout/scripts/setup.py ensure
+python3 skills/xhs-topic-scout/scripts/setup.py login
+python3 skills/xhs-topic-scout/scripts/setup.py status
+python3 skills/xhs-topic-scout/scripts/setup.py run search --keywords "AI办公" "会议纪要" --days 7 --top 10
+```
+
+`ensure` 安装/启动并检查；`login` 在未登录时保存私有二维码图片；`status` 只查看状态；`run` 自动准备连接并执行采集脚本。`needs_login` 表示等待扫码，不是安装完成或搜索成功。二维码过期后重新生成，扫码后再检查状态。
+
+安装助手返回码：`0` 服务与登录就绪，`3` 等待登录或服务未运行，`2` 配置失败；`run` 开始采集后沿用下文采集脚本的返回码。自动流程应同时检查 JSON 的状态，不能只根据返回码判断是否有真实话题结果。
+
+私有运行目录默认在 `~/.local/share/xhs-topic-scout`，可用 `XHS_SCOUT_HOME` 指定。安装助手不向用户打印令牌、Cookie 或二维码原始数据；不创建开机启动或定时任务。
+
+如果已经自行部署了数据服务，也可直接使用原有采集脚本：
 
 ```bash
 python3 skills/xhs-topic-scout/scripts/scout.py check

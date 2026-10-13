@@ -325,6 +325,16 @@ class ScoutIntegrationTests(unittest.TestCase):
 
 
 class ScoutOfflineTests(unittest.TestCase):
+    def test_abbreviated_url_cannot_override_managed_connection(self):
+        for command in (["check"], ["search", "--keywords", "AI"]):
+            for flag in ("--u", "--ur", "--ur=https://invalid.example"):
+                args = command + ([flag] if "=" in flag else [flag, "https://invalid.example"])
+                with self.subTest(args=args), mock.patch.object(scout, "Client") as client, contextlib.redirect_stderr(io.StringIO()):
+                    with self.assertRaises(SystemExit) as caught:
+                        scout.main(args)
+                    self.assertEqual(caught.exception.code, 2)
+                    client.assert_not_called()
+
     def test_missing_and_invalid_metrics_stay_unknown(self):
         for value in (None, "", "未取得", "--", -1, float("nan"), True):
             with self.subTest(value=value):

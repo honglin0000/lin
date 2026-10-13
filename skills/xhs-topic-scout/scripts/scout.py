@@ -274,18 +274,18 @@ def demo_report():
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="小红书热点侦察员：只读搜索、日期核验和研究素材导出。")
+    parser = argparse.ArgumentParser(description="小红书热点侦察员：只读搜索、日期核验和研究素材导出。", allow_abbrev=False)
     sub = parser.add_subparsers(dest="command", required=True)
-    check = sub.add_parser("check", help="检查数据服务和小红书登录状态")
+    check = sub.add_parser("check", help="检查数据服务和小红书登录状态", allow_abbrev=False)
     check.add_argument("--url", help="xiaohongshu-mcp 服务地址，也可设置 XHS_MCP_URL")
-    search = sub.add_parser("search", help="采集真实搜索结果")
+    search = sub.add_parser("search", help="采集真实搜索结果", allow_abbrev=False)
     search.add_argument("--keywords", nargs="+", required=True)
     search.add_argument("--days", type=int, default=7)
     search.add_argument("--top", type=int, default=10)
     search.add_argument("--detail-limit", type=int, default=30)
     search.add_argument("--url")
     search.add_argument("--output-dir", default="reports")
-    sample = sub.add_parser("sample", help="生成醒目标注的虚构演示，不联网")
+    sample = sub.add_parser("sample", help="生成醒目标注的虚构演示，不联网", allow_abbrev=False)
     sample.add_argument("--output-dir", default="reports")
     args = parser.parse_args(argv)
     try:

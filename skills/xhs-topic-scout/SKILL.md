@@ -13,7 +13,15 @@ description: 搜索小红书近期笔记，核验日期与互动数据，归纳�
 
 ## 获取证据
 
-优先运行本技能目录下的 `scripts/scout.py`（Python 3.9+，标准库）：
+由本项目安装助手配置时，优先运行本技能目录下的 `scripts/setup.py`（Python 3.9+，标准库），自动使用已保存连接并恢复停止的服务：
+
+```text
+python3 <本技能目录>/scripts/setup.py run search --keywords "关键词一" "关键词二" --days 7 --top 10 --output-dir <本次私有报告目录>
+```
+
+`needs_login` 时运行 `setup.py login`，通过当前私有对话展示返回的 `qr_path`，请用户用小红书 App 扫码。等待期间不重复生成二维码。扫码后用 `setup.py status` 验证 `logged_in=true`，再继续原搜索；不要向用户要 Cookie 或密码。自定义 `XHS_SCOUT_HOME` 时沿用安装时保存的私有目录。不要把连接错误、需要登录或安装完成说成搜索成功。
+
+已经有自行配置的可用服务时，可直接运行原采集脚本；不要用安装助手抢占它的端口：
 
 ```text
 python3 <本技能目录>/scripts/scout.py check
