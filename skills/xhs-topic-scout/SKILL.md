@@ -1,9 +1,13 @@
 ---
 name: xhs-topic-scout
-description: 搜索小红书近期笔记，核验日期与互动数据，归纳带来源的话题候选和原创选题建议。用于小红书热点研究、关键词趋势线索和竞品内容分析；只读，不发布或互动。
+description: 搜索小红书近期笔记，核验日期与互动数据，归纳带来源的话题候选和原创选题建议。用于小红书热点研究、关键词趋势线索和竞品内容分析；只读，不发布或互动。 Search recent Xiaohongshu (RED) posts, verify dates and engagement, and suggest sourced topics and original content ideas. Read-only research; no publishing or engagement actions.
 ---
 
 # 小红书话题研究
+
+简体中文 | [English](SKILL.en.md)
+
+For English instructions, read [SKILL.en.md](SKILL.en.md). This file remains the registration entry point for the same skill; use the English reference with the existing scripts.
 
 从真实搜索结果归纳话题，避免把单篇热门笔记或个性化搜索当全站趋势。
 
