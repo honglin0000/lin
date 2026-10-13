@@ -1,12 +1,12 @@
-# Xiaohongshu Topic Scout
+# Grok Bot Xiaohongshu Topic Scout (小红书选题机器人)
 
 [简体中文](README.md) | English
 
-A Xiaohongshu (小红书 / RED) topic research bot for Grok Bot. Give it a field or a few keywords, and it searches recent posts, verifies publication dates, collects engagement data and comment excerpts, and uses that evidence to suggest topics and original content ideas.
+Built for **Grok Bot users**, this project provides a **Xiaohongshu (小红书 / RED) topic research skill and bot workflow**. Send Grok Bot the repository link with an installation request so it can follow the setup workflow. Once configuration and the connection have been verified, ask Grok Bot to search recent Xiaohongshu posts by field or keyword, verify publication dates, collect available engagement data and comment excerpts, and use that evidence to suggest topics and original content ideas.
 
 **Read-only research: no publishing, commenting, liking, bookmarking, or automatic scheduling.** Results describe the current search sample, not a platform-wide trending chart.
 
-## Start with one message
+## Install the Xiaohongshu skill in Grok Bot with one message
 
 Send this message to your own Grok Bot:
 
@@ -26,7 +26,7 @@ Ideas, issue reports, and contributions are welcome:
 
 Real installation and search feedback, data-processing fixes, topic-analysis improvements, and clearer documentation are especially useful. See [Contributing](CONTRIBUTING.en.md).
 
-## What it produces
+## Xiaohongshu topic research with Grok Bot
 
 - Candidate posts from the past 1–180 days, with a default of 7 days; accept 1–5 keywords per request.
 - Two searches for each keyword: newest (最新) and most saved (最多收藏), deduplicated by post ID.
@@ -44,7 +44,7 @@ Data comes from the open-source [xpzouying/xiaohongshu-mcp](https://github.com/x
 
 Services created by the helper run on the same machine as the search script, listen only on the loopback address, and require authentication. `127.0.0.1` inside a Grok Bot cloud computer does not point to your Mac. The helper does not expose public ports or create tunnels. Each user has their own private settings and Xiaohongshu login session.
 
-## After installation
+## What to ask Grok Bot after installation
 
 > Research Xiaohongshu topics from the past week for “AI办公”, “会议纪要”, and “自动做PPT”. Search and verify the evidence first, then give me 5 candidate topics with sources and 3 original content ideas. Return fewer items if the evidence is insufficient.
 
