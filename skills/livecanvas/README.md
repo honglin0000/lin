@@ -2,7 +2,7 @@
 
 简体中文 | [English](README.en.md)
 
-把主题、文字或已有素材做成有封面、有动效的 Live 图片，适合知识讲解、产品对比和信息图。本目录收录开源项目 [pengchujin/livecanvas](https://github.com/pengchujin/livecanvas)，保留原作者署名与许可；版本和收录范围见 [上游来源](UPSTREAM.md)。
+把主题、文字或已有素材做成有封面、有动效的 Live 图片，适合知识讲解、产品对比和信息图。
 
 ## 让 AI 助手安装
 

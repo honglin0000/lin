@@ -9,8 +9,6 @@ This repository contains two modules you can use as needed:
 | Xiaohongshu topic research | Let Grok Bot search, verify, and organize evidence for content topics | [Installation and configuration](START.en.md) · [Skill](skills/xhs-topic-scout/SKILL.md) |
 | LiveCanvas (实况画布) | Create Live Photos | [Module guide and installation requirements](skills/livecanvas/README.en.md) · [Skill](skills/livecanvas/SKILL.md) |
 
-LiveCanvas comes from the open-source [pengchujin/livecanvas](https://github.com/pengchujin/livecanvas) project. This repository includes the tool for optional use; credit for the original work belongs to its upstream authors. Its main license is MIT, with components under Apache-2.0. Preserve the applicable licenses and notices when using or redistributing it. See the [LiveCanvas module guide](skills/livecanvas/README.en.md) for installation requirements and usage.
-
 ## Grok Bot Xiaohongshu Topic Scout (小红书选题机器人)
 
 Built for **Grok Bot users**, this project provides a **Xiaohongshu (小红书 / RED) topic research skill and bot workflow**. Send Grok Bot the repository link with an installation request so it can follow the setup workflow. Once configuration and the connection have been verified, ask Grok Bot to search recent Xiaohongshu posts by field or keyword, verify publication dates, collect available engagement data and comment excerpts, and use that evidence to suggest topics and original content ideas.

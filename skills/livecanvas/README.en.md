@@ -2,7 +2,7 @@
 
 [简体中文](README.md) | English
 
-Create designed covers, animations and Apple Live Photo resources from a topic, text or supplied materials. This directory vendors [pengchujin/livecanvas](https://github.com/pengchujin/livecanvas), retaining the original authorship and licenses. See [upstream provenance](UPSTREAM.md) for the pinned revision and import scope.
+Create designed covers, animations and Apple Live Photo resources from a topic, text or supplied materials.
 
 ## Ask an AI assistant to install
 
