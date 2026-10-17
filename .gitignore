@@ -16,3 +16,10 @@ auth-token
 service.json
 setup.lock
 xiaohongshu-mcp-v*
+
+# LiveCanvas dependencies and generated media
+node_modules/
+.build/
+out/
+artifacts/
+*.pvt/
