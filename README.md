@@ -1,15 +1,6 @@
-# lin-tools｜小红书选题与 Live 图片工具
+# Grok Bot 小红书选题机器人｜小红书热点侦察员
 
 简体中文 | [English](README.en.md)
-
-本仓库包含两个可按需使用的模块：
-
-| 模块 | 用途 | 入口 |
-| --- | --- | --- |
-| 小红书选题研究 | 让 Grok Bot 搜索、核验和整理选题证据 | [安装与配置](START.md) · [实际技能](skills/xhs-topic-scout/SKILL.md) |
-| LiveCanvas（实况画布） | 制作 Live 图片 | [模块说明与安装要求](skills/livecanvas/README.md) · [实际技能](skills/livecanvas/SKILL.md) |
-
-## Grok Bot 小红书选题机器人｜小红书热点侦察员
 
 本项目主要面向 **Grok Bot 用户**，提供**小红书选题研究技能和机器人工作流**。把仓库链接与安装请求发给 Grok Bot，让它按安装流程配置这项能力；完成配置并验证连接后，可让 Grok Bot 按领域或关键词搜索近期小红书笔记、核验日期、整理可获取的互动数据与评论片段，再归纳值得关注的话题与原创选题。
 

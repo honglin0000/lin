@@ -1,15 +1,6 @@
-# lin-tools | Xiaohongshu Topic Research and Live Photo Tools
+# Grok Bot Xiaohongshu Topic Scout (小红书选题机器人)
 
 [简体中文](README.md) | English
-
-This repository contains two modules you can use as needed:
-
-| Module | Purpose | Entry points |
-| --- | --- | --- |
-| Xiaohongshu topic research | Let Grok Bot search, verify, and organize evidence for content topics | [Installation and configuration](START.en.md) · [Skill](skills/xhs-topic-scout/SKILL.md) |
-| LiveCanvas (实况画布) | Create Live Photos | [Module guide and installation requirements](skills/livecanvas/README.en.md) · [Skill](skills/livecanvas/SKILL.md) |
-
-## Grok Bot Xiaohongshu Topic Scout (小红书选题机器人)
 
 Built for **Grok Bot users**, this project provides a **Xiaohongshu (小红书 / RED) topic research skill and bot workflow**. Send Grok Bot the repository link with an installation request so it can follow the setup workflow. Once configuration and the connection have been verified, ask Grok Bot to search recent Xiaohongshu posts by field or keyword, verify publication dates, collect available engagement data and comment excerpts, and use that evidence to suggest topics and original content ideas.
 
